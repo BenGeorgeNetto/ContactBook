@@ -28,15 +28,18 @@ class ContactBook:
         if not self.phoneBook:
             print("List is empty: []")
         else:
-            for i in range(len(self.phoneBook)):
-                print(self.phoneBook[i])
+            for contact in self.phoneBook:
+                print(
+                    f"Contact {i}: \nName : {contact[0]}\nPhone No.: {contact[1]}\nE-mail: {contact[2]}\n\n")
 
     def search(self):
-        choice = int(input('Enter search criteria\n\n1. Name\n2. Number\n3. Email ID \n\nPlease enter: '))
+        choice = int(input(
+            'Enter search criteria\n\n1. Name\n2. Number\n3. Email ID \n\nPlease enter: '))
         temp = []
 
         if choice == 1:
-            query = input("Please enter the name of the contact you wish to search: ")
+            query = input(
+                "Please enter the name of the contact you wish to search: ")
             for i in range(len(self.phoneBook)):
                 if query == self.phoneBook[i][0]:
                     temp.append(self.phoneBook[i])
@@ -49,7 +52,8 @@ class ContactBook:
                     temp.append(self.phoneBook[i])
 
         elif choice == 3:
-            query = str(input("Please enter the e-mail ID of the contact you wish to search: "))
+            query = str(
+                input("Please enter the e-mail ID of the contact you wish to search: "))
             for i in range(len(self.phoneBook)):
                 if query == self.phoneBook[i][2]:
                     temp.append(self.phoneBook[i])
@@ -62,12 +66,6 @@ class ContactBook:
 
     def delete_all(self):
         self.phoneBook = []
-
-    def show_all(self):
-        pprint(self.phoneBook)
-        # for i in self.phoneBook:
-        #     for n, p, e in self.phoneBook[i]:
-        #         print(f"\n\nName: {n} \nPhone: {p} \nEmail ID: {e}")
 
     def menu(self):
         print('Contact Book\n\n')
@@ -91,7 +89,7 @@ class ContactBook:
                 self.search()
 
             if self.state == 4:
-                self.show_all()
+                self.display_all()
 
             if self.state == 5:
                 self.delete_all()
