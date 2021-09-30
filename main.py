@@ -1,6 +1,3 @@
-from pprint import pprint
-
-
 class ContactBook:
 
     def __init__(self):
@@ -28,9 +25,10 @@ class ContactBook:
         if not self.phoneBook:
             print("List is empty: []")
         else:
+            i = 0
             for contact in self.phoneBook:
-                print(
-                    f"Contact {i}: \nName : {contact[0]}\nPhone No.: {contact[1]}\nE-mail: {contact[2]}\n\n")
+                i = i + 1
+                print(f"Contact {i}: \nName : {contact[0]}\nPhone No.: {contact[1]}\nE-mail: {contact[2]}\n\n")
 
     def search(self):
         choice = int(input(
